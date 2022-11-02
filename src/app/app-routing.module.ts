@@ -1,13 +1,18 @@
-import { CadastroCorrespondenciaComponent } from './cadastros/cadastro-correspondencia/cadastro-correspondencia.component';
+import { CorrespondenciasReadComponent } from './views/components/cadastros/correspondencias-read/correspondencias-read.component';
+import { HomeComponent } from './views/components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
+
 
 
 const routes: Routes = [
   {
-    path: '',
-    component: CadastroCorrespondenciaComponent
+    path: 'smartentry/home',
+    component: HomeComponent
+  },
+  {
+    path: 'smartentry/correspondences',
+    component: CorrespondenciasReadComponent
   }
 ];
 
