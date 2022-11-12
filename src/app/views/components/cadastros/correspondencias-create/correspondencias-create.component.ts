@@ -4,10 +4,9 @@ import { MoradorService } from 'src/app/services/morador.service';
 import { Morador } from './../../../../models/morador';
 import { Correspondencia } from './../../../../models/cadastro-correspondencias';
 import { CorrespondenciasService } from '../../../../services/correspondencias.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-correspondencias-create',
   templateUrl: './correspondencias-create.component.html',
@@ -22,7 +21,7 @@ export class CorrespondenciasCreateComponent implements OnInit {
   correspondencia: Correspondencia = {
     id: '',
     tipo_correspondencia: '',
-    data_recebimento: new Date(''),
+    data_recebimento: '',
     status_entrega: '',
     dweller: '',
     conciergeEmployee: ''
@@ -48,8 +47,10 @@ export class CorrespondenciasCreateComponent implements OnInit {
     this.listarPorteiro();
   }
 
+  
+
   cancel():void {
-    this.router.navigate(['correspondencias'])
+    this.router.navigate(['smartentry/correspondences'])
   }
 
   listarMorador(): void {
@@ -64,10 +65,23 @@ export class CorrespondenciasCreateComponent implements OnInit {
     })
   }
 
-  create():void {
+  create() {
     this.service.create(this.correspondencia).subscribe((resposta) => {
-      this.router.navigate(['correspondencias'])
-      this.service.message('Correspondencia adicionada com Sucesso!')
+    this.router.navigate(['smartentry/correspondences'])
+    this.service.message('Correspondencia adicionada com Sucesso!')
     })
+    /* if(this.correspondenciaForm.valid) {
+      this.service.create(this.correspondencia)
+      .subscribe({
+        next:(res)=> {
+          alert("Correspondencia adicionada com Sucesso!");
+          this.correspondenciaForm.reset();
+          this.dialogRef.close('save');
+        },
+        error:()=> {
+          alert("Erro ao adicionar correspondencia")
+        }
+      })
+    }*/
   }
 }

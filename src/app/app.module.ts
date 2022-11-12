@@ -23,13 +23,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './views/components/home/home.component';
 import { CorrespondenciasReadComponent } from './views/components/cadastros/correspondencias-read/correspondencias-read.component';
 import { CorrespondenciasCreateComponent } from './views/components/cadastros/correspondencias-create/correspondencias-create.component';
+import { CarrosEmpresasReadComponent } from './views/components/cadastros/carros-empresas-read/carros-empresas-read.component';
+import { CorrespondenciasUpdateComponent } from './views/components/cadastros/correspondencias-update/correspondencias-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CorrespondenciasReadComponent,
-    CorrespondenciasCreateComponent
+    CorrespondenciasCreateComponent,
+    CarrosEmpresasReadComponent,
+    CorrespondenciasUpdateComponent
 
   ],
   imports: [

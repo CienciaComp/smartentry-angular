@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h1>Atualizando Correspondencia</h1>
+
+    <div class="labels">
+        <mat-form-field class="full-width">
+            <mat-label>Tipo Correspondencia</mat-label>
+            <input [(ngModel)]="correspondencia.tipo_correspondencia" matInput placeholder="Tipo">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Data Correspondencia</mat-label>
+            <input [(ngModel)]="correspondencia.data_recebimento" matInput placeholder="Date">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Status Correspondencia</mat-label>
+            <input [(ngModel)]="correspondencia.status_entrega" matInput placeholder="Status">
+        </mat-form-field>
+
+        <mat-form-field appearance="full-width">
+            <mat-label>Selecione Morador</mat-label>
+            <mat-select [(value)]="correspondencia.dweller">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let mor of moradores" value="{{mor.id}}">{{ mor.nome }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="full-width">
+            <mat-label>Selecione Porteiro</mat-label>
+            <mat-select [(value)]="correspondencia.conciergeEmployee">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let por of porteiros" value="{{por.id}}">{{ por.nome }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary">ATUALIZAR</button>
+    <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="black">CANCELAR</button>
+</div>
