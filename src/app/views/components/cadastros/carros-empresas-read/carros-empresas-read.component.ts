@@ -1,3 +1,5 @@
+import { CarrosEmpresasCreateComponent } from './../carros-empresas-create/carros-empresas-create.component';
+import { MatDialog } from '@angular/material/dialog';
 import { EmpresasVisitantes } from './../../../../models/cadastro-empresas-visitantes';
 import { EmpresasVisitantesService } from './../../../../services/empresas-visitantes.service';
 import { CarrosEmpresasService } from './../../../../services/carros-empresas.service';
@@ -16,37 +18,59 @@ export class CarrosEmpresasReadComponent implements AfterViewInit {
   carrosEmpresas: CarrosEmpresas[] = [];
   empresasVisitantes: EmpresasVisitantes[] = [];
   
-  displayedColumns: string[] = ['id', 'visitorCompany', 'nome', 'ecar'];
-  dataSource = new MatTableDataSource<CarrosEmpresas>(this.carrosEmpresas);
+  displayedColumns: string[] = ['id', 'nome_empresa', 'funcionario', 'carCompany', 'action'];
+  dataSource = new MatTableDataSource<EmpresasVisitantes>(this.empresasVisitantes);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.findAll();
+    this.listarPlaca();
   }
 
   constructor(
+    private dialog : MatDialog,
     private service : CarrosEmpresasService,
-    private empresasService : EmpresasVisitantesService
-    ) {}
+    private empresasService : EmpresasVisitantesService) {}
 
-  findAll(): void {
-    this.service.findAll().subscribe((resposta) => {
-      this.carrosEmpresas = resposta;
-      this.listarEmpresas();
-      this.dataSource = new MatTableDataSource<CarrosEmpresas>(this.carrosEmpresas);
-      this.dataSource.paginator = this.paginator;
-      console.log(this.carrosEmpresas);    
-    })   
+  openDialog() {
+    this.dialog.open(CarrosEmpresasCreateComponent, {
+      width:'30%'
+    });
   }
 
-  listarEmpresas() : void {
-    this.carrosEmpresas.forEach(x => {
-      this.empresasService.findById(x.visitorCompany).subscribe(resposta => {
-        x.visitorCompany = resposta.nome_empresa
-      })
+  delete(id:number) {
+    this.empresasService.delete(id)
+    .subscribe({
+      next:(res)=>{
+        this.empresasService.message('Correspondencia deletada com Sucesso!')
+        this.findAll();
+      },
+      error:()=>{
+        this.empresasService.message('Erro ao deletar a correspondencia!')
+      }
     })
   }
 
+  findAll(): void {
+    this.empresasService.findAll().subscribe((resposta) => {
+      this.empresasVisitantes = resposta;
+      this.listarPlaca();
+      this.dataSource = new MatTableDataSource<EmpresasVisitantes>(this.empresasVisitantes);
+      this.dataSource.paginator = this.paginator;
+      console.log(this.empresasVisitantes);    
+    })
+    this.empresasService.RequiredRefresh.subscribe(resposta => {
+      this.findAll();
+    })    
+  }
+
+  listarPlaca() : void {
+    this.empresasVisitantes.forEach(x => {
+      this.service.findById(x.carCompany).subscribe(resposta => {
+        x.carCompany = resposta.placa;
+      })
+    })
+  }
 }
 

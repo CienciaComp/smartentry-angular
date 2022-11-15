@@ -25,6 +25,10 @@ import { CorrespondenciasReadComponent } from './views/components/cadastros/corr
 import { CorrespondenciasCreateComponent } from './views/components/cadastros/correspondencias-create/correspondencias-create.component';
 import { CarrosEmpresasReadComponent } from './views/components/cadastros/carros-empresas-read/carros-empresas-read.component';
 import { CorrespondenciasUpdateComponent } from './views/components/cadastros/correspondencias-update/correspondencias-update.component';
+import { CarrosEmpresasCreateComponent } from './views/components/cadastros/carros-empresas-create/carros-empresas-create.component';
+import { CarrosEmpresasUpdateComponent } from './views/components/cadastros/carros-empresas-update/carros-empresas-update.component';
+import { VisitantesReadComponent } from './views/components/cadastros/visitantes-read/visitantes-read.component';
+import { VisitantesCreateComponent } from './views/components/cadastros/visitantes-create/visitantes-create.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { CorrespondenciasUpdateComponent } from './views/components/cadastros/co
     CorrespondenciasReadComponent,
     CorrespondenciasCreateComponent,
     CarrosEmpresasReadComponent,
-    CorrespondenciasUpdateComponent
+    CorrespondenciasUpdateComponent,
+    CarrosEmpresasCreateComponent,
+    CarrosEmpresasUpdateComponent,
+    VisitantesReadComponent,
+    VisitantesCreateComponent
 
   ],
   imports: [

@@ -1,0 +1,27 @@
+<div class="container">
+
+    <h1>Atualizando Empresa Visitante</h1>
+
+    <div class="labels">
+        <mat-form-field class="full-width">
+            <mat-label>Nome Empresa</mat-label>
+            <input [(ngModel)]="empresasVisitantes.nome_empresa" matInput placeholder="Nome Empresa">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Nome Funcionario</mat-label>
+            <input [(ngModel)]="empresasVisitantes.funcionario" matInput placeholder="Nome Funcionario">
+        </mat-form-field>
+
+        <mat-form-field appearance="full-width">
+            <mat-label>Selecione Placa</mat-label>
+            <mat-select [(value)]="empresasVisitantes.carCompany">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let pla of carrosEmpresas" value="{{pla.id}}">{{ pla.placa }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary">ATUALIZAR</button>
+    <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="black">CANCELAR</button>
+</div>

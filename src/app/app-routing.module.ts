@@ -1,3 +1,5 @@
+import { VisitantesReadComponent } from './views/components/cadastros/visitantes-read/visitantes-read.component';
+import { CarrosEmpresasUpdateComponent } from './views/components/cadastros/carros-empresas-update/carros-empresas-update.component';
 import { CarrosEmpresasReadComponent } from './views/components/cadastros/carros-empresas-read/carros-empresas-read.component';
 import { CorrespondenciasReadComponent } from './views/components/cadastros/correspondencias-read/correspondencias-read.component';
 import { HomeComponent } from './views/components/home/home.component';
@@ -23,7 +25,15 @@ const routes: Routes = [
   {
     path: 'smartentry/visitorCompany',
     component: CarrosEmpresasReadComponent
-  } 
+  },
+  {
+    path: 'smartentry/visitorCompany/update/:id',
+    component: CarrosEmpresasUpdateComponent
+  },
+  {
+    path: 'smartentry/visitants',
+    component: VisitantesReadComponent
+  }  
 ];
 
 @NgModule({

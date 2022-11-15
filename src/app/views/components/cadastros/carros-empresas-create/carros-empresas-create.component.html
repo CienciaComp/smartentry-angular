@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Add Empresa Visitante Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="empresasVisitantesForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome Empresa</mat-label>
+            <input [(ngModel)]="empresasVisitantes.nome_empresa" formControlName="nome_empresa" matInput placeholder="Nome Empresa">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Nome Funcionario</mat-label>
+            <input [(ngModel)]="empresasVisitantes.funcionario" formControlName="funcionario" matInput placeholder="Nome Funcionario">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione Placa</mat-label>
+            <mat-select [(value)]="empresasVisitantes.carCompany" formControlName="carCompany" matInput placeholder="Placa">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let pla of carrosEmpresas" value="{{pla.id}}">{{ pla.placa }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button (click)="cancel()" mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+    <button (click)="create()" style="margin-left: 8px;" mat-raised-button color="primary">Salvar</button>
+</div>
