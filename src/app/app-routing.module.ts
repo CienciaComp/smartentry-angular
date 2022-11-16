@@ -1,3 +1,4 @@
+import { VisitantesUpdateComponent } from './views/components/cadastros/visitantes-update/visitantes-update.component';
 import { ValidacaoPortaoComponent } from './views/components/validacao-portao/validacao-portao.component';
 import { ReclamacoesComponent } from './views/components/reclamacoes/reclamacoes.component';
 import { VisitantesReadComponent } from './views/components/cadastros/visitantes-read/visitantes-read.component';
@@ -10,6 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CorrespondenciasUpdateComponent } from './views/components/cadastros/correspondencias-update/correspondencias-update.component';
 import { LoginComponent } from './views/components/login/login.component';
 import { HeaderComponent } from './views/components/template/header/header.component';
+import { VisitantesCreateComponent } from './views/components/cadastros/visitantes-create/visitantes-create.component';
 
 
 
@@ -37,6 +39,10 @@ const routes: Routes = [
   {
     path: 'smartentry/visitants',
     component: VisitantesReadComponent
+  },
+  {
+    path: 'smartentry/visitants/update/:id',
+    component: VisitantesUpdateComponent
   },
   {
     path: 'smartentry/login',

@@ -1,39 +1,48 @@
-<h1 class="texto" mat-dialog-title>ADICIONANDO</h1>
-<div mat-dialog-content>
-    <form [formGroup]="visitanteForm">
-        <mat-form-field appearance="outline">
+<div class="container">
+
+    <h1>Atualizando Visitantes</h1>
+
+    <div class="labels">
+        <mat-form-field class="full-width">
             <mat-label>Nome Visitante</mat-label>
             <input [(ngModel)]="visitante.nome" formControlName="nome" matInput placeholder="nome">
         </mat-form-field>
-        <mat-form-field appearance="outline">
+
+        <mat-form-field class="full-width">
             <mat-label>CPF</mat-label>
             <input [(ngModel)]="visitante.cpf" formControlName="cpf" matInput placeholder="cpf">
         </mat-form-field>
-        <mat-form-field appearance="outline">
+
+        <mat-form-field class="full-width">
             <mat-label>Tipo</mat-label>
             <input [(ngModel)]="visitante.tipo" formControlName="tipo" matInput placeholder="tipo">
         </mat-form-field>
-        <mat-form-field appearance="outline">
+
+        <mat-form-field class="full-width">
             <mat-label>Status</mat-label>
             <input [(ngModel)]="visitante.status" formControlName="status" matInput placeholder="Status">
         </mat-form-field>
-        <mat-form-field appearance="outline">
+
+        <mat-form-field appearance="full-width">
             <mat-label>Selecione Morador</mat-label>
             <mat-select [(value)]="visitante.dweller" formControlName="dweller" matInput placeholder="Tipo">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let mor of morador" value="{{mor.id}}">{{ mor.nome }}</mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+
+        <mat-form-field appearance="full-width">
             <mat-label>Selecione Placa</mat-label>
             <mat-select [(value)]="visitante.vcar" formControlName="vcar" matInput placeholder="Tipo">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let pla of carrosVisitantes" value="{{pla.id}}">{{ pla.placa }}</mat-option>
             </mat-select>
         </mat-form-field>
-    </form>
-</div>
-<div mat-dialog-action [align]="'end'">
-    <button (click)="cancel()" mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
-    <button (click)="create()" style="margin-left: 8px;" mat-raised-button color="primary">Salvar</button>
+    </div>
+
+    <div class="buttons">
+        <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary">ATUALIZAR</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="black">CANCELAR</button>
+    </div>
+
 </div>

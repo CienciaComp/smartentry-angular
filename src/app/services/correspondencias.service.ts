@@ -33,8 +33,9 @@ export class CorrespondenciasService {
     );
   }
 
-  update(correspondencia: Correspondencia):Observable<Correspondencia> {
-    return this.http.put<Correspondencia>("/api/correspondences", correspondencia.id);
+  update(correspondencia: Correspondencia):Observable<void> {
+    const url = `${this.API}/correspondences/${correspondencia.id}`
+    return this.http.put<void>(url, correspondencia)
   }
 
   delete(id : any):Observable<void> {

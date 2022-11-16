@@ -47,8 +47,12 @@ export class CorrespondenciasUpdateComponent implements OnInit {
   }
 
   findbyId():void {
-    this.service.findById(this.correspondencia.id).subscribe(resposta => {
-      this.correspondencia = resposta;
+    this.service.findById(this.correspondencia.id!).subscribe(resposta => {
+      this.correspondencia.tipo_correspondencia = resposta.tipo_correspondencia;
+      this.correspondencia.data_recebimento = resposta.data_recebimento;
+      this.correspondencia.status_entrega = resposta.status_entrega;
+      this.correspondencia.dweller = resposta.dweller;
+      this.correspondencia.conciergeEmployee = resposta.conciergeEmployee;
     })
   }
 
@@ -70,8 +74,10 @@ export class CorrespondenciasUpdateComponent implements OnInit {
 
   update(): void {
     this.service.update(this.correspondencia).subscribe(resposta => {
-      this.service.message("Correspondencia atualizada com Sucesso!")
       this.router.navigate(['smartentry/correspondences'])
-    })
+      this.service.message("Correspondencia atualizada com Sucesso!")
+    }), err => {
+      this.service.message("Erro atualizar correspondencia!")
+    }
   }
 }

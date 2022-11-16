@@ -35,6 +35,10 @@ import { LoginComponent } from './views/components/login/login.component';
 import { HeaderComponent } from './views/components/template/header/header.component';
 import { ReclamacoesComponent } from './views/components/reclamacoes/reclamacoes.component';
 import { ValidacaoPortaoComponent } from './views/components/validacao-portao/validacao-portao.component';
+import { FooterComponent } from './views/components/template/footer/footer.component';
+import { SidnavComponent } from './views/components/template/sidnav/sidnav.component';
+import {MatCardModule} from '@angular/material/card';
+import { VisitantesUpdateComponent } from './views/components/cadastros/visitantes-update/visitantes-update.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { ValidacaoPortaoComponent } from './views/components/validacao-portao/va
     LoginComponent,
     HeaderComponent,
     ReclamacoesComponent,
-    ValidacaoPortaoComponent
+    ValidacaoPortaoComponent,
+    FooterComponent,
+    SidnavComponent,
+    VisitantesUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +81,8 @@ import { ValidacaoPortaoComponent } from './views/components/validacao-portao/va
     HttpClientModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

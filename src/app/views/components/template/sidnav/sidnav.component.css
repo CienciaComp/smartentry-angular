@@ -28,9 +28,13 @@
     width: 5vw;
 }
 
+.sidenav {
+    background-color: #3b82f3;
+}
 
 .container {
     height: 85%;
+    background-color: #fafafa;
 }
 
 i {

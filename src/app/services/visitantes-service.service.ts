@@ -33,6 +33,16 @@ export class VisitantesService {
     );
   }
 
+  update(visitante: Visitante):Observable<void> {
+    const url = `${this.API}/visitants/${visitante.id}`
+    return this.http.put<void>(url, visitante)
+  }
+
+  findById(id : any):Observable<Visitante>{
+    const url = `${this.API}/visitants/${id}`;
+    return this.http.get<Visitante>(url);
+  }
+
   delete(id : any):Observable<void> {
     return this.http.delete<void>("/api/visitants/" + id);
   }

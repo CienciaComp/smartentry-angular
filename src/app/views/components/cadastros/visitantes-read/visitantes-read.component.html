@@ -1,5 +1,4 @@
 <div class="create">
-    <h1>Visitantes</h1>
     <button class="mat-elevation-z8 " mat-stroked-button color="primary" (click)="openDialog()">ADICIONAR VISITANTES</button>
   </div>
   
@@ -49,7 +48,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Ações </th>
         <td mat-cell *matCellDef="let element">
-          <a routerLink="">
+          <a routerLink="update/{{element.id}}">
             <i id="edit" class="material-icons">edit</i>
           </a>  
           <button (click)="delete(element.id)" mat-icon-button color="warn">

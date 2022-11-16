@@ -23,6 +23,8 @@ table {
     text-align: center;
     font-size: 2rem;
     color: #3B82F3;
+    font-weight: 800;
+    margin: 0;
 }
 
 .create {
@@ -32,6 +34,7 @@ table {
     position: relative;
     top: 20%; 
 }
+
 
 .create button {
     width: 100%;
