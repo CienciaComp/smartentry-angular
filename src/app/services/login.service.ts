@@ -1,18 +1,33 @@
+import { Router } from '@angular/router';
 import { Users } from './../models/users';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http:HttpClient) { }
+  private usuarioAutenticado: boolean = false;
 
-  public login(nomeUsuario:string, senha:string) {
-    const headers = new HttpHeaders({Authorization: 'Basic' + btoa(nomeUsuario+":"+senha)})
-    return this.http.get("/api/users");
+  mostrarMenuEmitter = new EventEmitter<boolean>();
+
+  constructor(private http:HttpClient, private router : Router) { }
+
+  public login(usuario: Users) {
+    if(usuario.nomeUsuario === 'Henrique' && 
+      usuario.senha === '123') {
+        this.usuarioAutenticado = true;
+
+        this.mostrarMenuEmitter.emit(true)
+
+        this.router.navigate(['smartentry/home'])
+      
+      } else {
+        this.usuarioAutenticado = false;
+        this.mostrarMenuEmitter.emit(false)
+      }
   }
 
   findAll(): Observable<Users[]> {

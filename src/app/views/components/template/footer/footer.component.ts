@@ -1,3 +1,4 @@
+import { LoginService } from './../../../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  mostrarMenu: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private service : LoginService) {
+
+  }
+
+  ngOnInit() {
+    this.service.mostrarMenuEmitter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    );
   }
 
 }

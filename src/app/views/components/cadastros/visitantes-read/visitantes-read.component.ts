@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Morador } from './../../../../models/morador';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CarrosVisitantes } from 'src/app/models/carros-visitantes';
-import { VisitantePlacaComponent } from '../visitante-placa/visitante-placa.component';
+import { VisitantePlacaComponent } from '../../../../visitante-placa/visitante-placa.component';
 
 @Component({
   selector: 'app-visitantes-read',
