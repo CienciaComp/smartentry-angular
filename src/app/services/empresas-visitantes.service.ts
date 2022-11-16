@@ -37,8 +37,9 @@ export class EmpresasVisitantesService {
     );
   }
 
-  update(empresaVisitante: EmpresasVisitantes):Observable<EmpresasVisitantes> {
-    return this.http.put<EmpresasVisitantes>("/api/company", empresaVisitante.id);
+  update(empresaVisitante: EmpresasVisitantes):Observable<void> {
+    const url = `${this.API}/company/${empresaVisitante.id}`
+    return this.http.put<void>(url, empresaVisitante)
   }
 
   delete(id : any):Observable<void> {

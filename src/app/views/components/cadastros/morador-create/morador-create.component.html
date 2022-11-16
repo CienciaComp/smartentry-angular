@@ -1,0 +1,46 @@
+<h1 class="texto" mat-dialog-title>ADICIONANDO</h1>
+<div mat-dialog-content>
+    <form [formGroup]="moradorForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input [(ngModel)]="morador.nome" formControlName="nome" matInput placeholder="nome">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input [(ngModel)]="morador.cpf" formControlName="cpf" matInput placeholder="cpf">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>RG</mat-label>
+            <input [(ngModel)]="morador.rg" formControlName="rg" matInput placeholder="rg">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <input [(ngModel)]="morador.status" formControlName="status" matInput placeholder="status">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione Residência</mat-label>
+            <mat-select [(value)]="morador.residence" formControlName="dweller" matInput placeholder="Tipo">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let res of residences" value="{{res.id}}">{{ res.numero }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione Contato Morador</mat-label>
+            <mat-select [(value)]="morador.contactDweller" formControlName="contactDweller" matInput placeholder="Tipo">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let con of contatoMorador" value="{{con.id}}">{{ con.telefone1 }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione Placa Carro</mat-label>
+            <mat-select [(value)]="morador.car" formControlName="car" matInput placeholder="Tipo">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let car of placaMorador" value="{{car.id}}">{{ car.placa }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button (click)="cancel()" mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+    <button (click)="create()" style="margin-left: 8px;" mat-raised-button color="primary">Salvar</button>
+</div>

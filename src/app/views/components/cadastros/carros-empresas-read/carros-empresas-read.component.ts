@@ -1,3 +1,4 @@
+import { VisitantesEmpresaPlacaComponent } from './../visitantes-empresa-placa/visitantes-empresa-placa.component';
 import { CarrosEmpresasCreateComponent } from './../carros-empresas-create/carros-empresas-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpresasVisitantes } from './../../../../models/cadastro-empresas-visitantes';
@@ -35,6 +36,12 @@ export class CarrosEmpresasReadComponent implements AfterViewInit {
 
   openDialog() {
     this.dialog.open(CarrosEmpresasCreateComponent, {
+      width:'30%'
+    });
+  }
+
+  addPlaca() {
+    this.dialog.open(VisitantesEmpresaPlacaComponent, {
       width:'30%'
     });
   }

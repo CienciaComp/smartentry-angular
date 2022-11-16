@@ -38,8 +38,10 @@ export class CarrosEmpresasUpdateComponent implements OnInit {
   }
 
   findbyId():void {
-    this.service.findById(this.empresasVisitantes.id).subscribe(resposta => {
-      this.empresasVisitantes = resposta;
+    this.service.findById(this.empresasVisitantes.id!).subscribe(resposta => {
+      this.empresasVisitantes.nome_empresa = resposta.nome_empresa;
+      this.empresasVisitantes.funcionario = resposta.funcionario;
+      this.empresasVisitantes.carCompany = resposta.carCompany;
     })
   }
 
@@ -51,9 +53,11 @@ export class CarrosEmpresasUpdateComponent implements OnInit {
 
   update(): void {
     this.service.update(this.empresasVisitantes).subscribe(resposta => {
+      this.router.navigate(['smartentry/visitorCompany'])
       this.service.message("Empresa Visitante Atualizada com Sucesso!")
-      this.router.navigate(['smarentry/visitorCompany'])
-    })
+    }), err => {
+      this.service.message("Erro atualizar Empresa Visitante!")
+    }
   }
 
 }

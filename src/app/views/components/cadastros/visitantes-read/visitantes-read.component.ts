@@ -10,6 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Morador } from './../../../../models/morador';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CarrosVisitantes } from 'src/app/models/carros-visitantes';
+import { VisitantePlacaComponent } from '../visitante-placa/visitante-placa.component';
 
 @Component({
   selector: 'app-visitantes-read',
@@ -41,6 +42,12 @@ export class VisitantesReadComponent implements AfterViewInit {
 
   openDialog() {
     this.dialog.open(VisitantesCreateComponent, {
+      width:'30%'
+    });
+  }
+
+  addPlaca() {
+    this.dialog.open(VisitantePlacaComponent, {
       width:'30%'
     });
   }

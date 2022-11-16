@@ -1,9 +1,9 @@
 export interface Porteiro {
     id?: any;
     nome: String;
-    cpf: Number;
-    status: Number;
-    data_admissao: Date;
-    data_demissao: Date;
+    cpf: String;
+    status: String;
+    data_admissao: String;
+    data_demissao: String;
     turno: String
 }

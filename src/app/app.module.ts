@@ -39,6 +39,12 @@ import { FooterComponent } from './views/components/template/footer/footer.compo
 import { SidnavComponent } from './views/components/template/sidnav/sidnav.component';
 import {MatCardModule} from '@angular/material/card';
 import { VisitantesUpdateComponent } from './views/components/cadastros/visitantes-update/visitantes-update.component';
+import { VisitantePlacaComponent } from './views/components/cadastros/visitante-placa/visitante-placa.component';
+import { VisitantesEmpresaPlacaComponent } from './views/components/cadastros/visitantes-empresa-placa/visitantes-empresa-placa.component';
+import { MoradorReadComponent } from './views/components/cadastros/morador-read/morador-read.component';
+import { PorteiroReadComponent } from './views/components/cadastros/porteiro-read/porteiro-read.component';
+import { MoradorCreateComponent } from './views/components/cadastros/morador-create/morador-create.component';
+import { PorteiroCreateComponent } from './views/components/cadastros/porteiro-create/porteiro-create.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,13 @@ import { VisitantesUpdateComponent } from './views/components/cadastros/visitant
     ValidacaoPortaoComponent,
     FooterComponent,
     SidnavComponent,
-    VisitantesUpdateComponent
+    VisitantesUpdateComponent,
+    VisitantePlacaComponent,
+    VisitantesEmpresaPlacaComponent,
+    MoradorReadComponent,
+    PorteiroReadComponent,
+    MoradorCreateComponent,
+    PorteiroCreateComponent
   ],
   imports: [
     BrowserModule,

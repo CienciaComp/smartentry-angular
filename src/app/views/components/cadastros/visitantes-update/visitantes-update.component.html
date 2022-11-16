@@ -5,27 +5,27 @@
     <div class="labels">
         <mat-form-field class="full-width">
             <mat-label>Nome Visitante</mat-label>
-            <input [(ngModel)]="visitante.nome" formControlName="nome" matInput placeholder="nome">
+            <input [(ngModel)]="visitante.nome"  matInput placeholder="nome">
         </mat-form-field>
 
         <mat-form-field class="full-width">
             <mat-label>CPF</mat-label>
-            <input [(ngModel)]="visitante.cpf" formControlName="cpf" matInput placeholder="cpf">
+            <input [(ngModel)]="visitante.cpf"  matInput placeholder="cpf">
         </mat-form-field>
 
         <mat-form-field class="full-width">
             <mat-label>Tipo</mat-label>
-            <input [(ngModel)]="visitante.tipo" formControlName="tipo" matInput placeholder="tipo">
+            <input [(ngModel)]="visitante.tipo"  matInput placeholder="tipo">
         </mat-form-field>
 
         <mat-form-field class="full-width">
             <mat-label>Status</mat-label>
-            <input [(ngModel)]="visitante.status" formControlName="status" matInput placeholder="Status">
+            <input [(ngModel)]="visitante.status" matInput placeholder="Status">
         </mat-form-field>
 
         <mat-form-field appearance="full-width">
             <mat-label>Selecione Morador</mat-label>
-            <mat-select [(value)]="visitante.dweller" formControlName="dweller" matInput placeholder="Tipo">
+            <mat-select [(value)]="visitante.dweller" matInput placeholder="Tipo">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let mor of morador" value="{{mor.id}}">{{ mor.nome }}</mat-option>
             </mat-select>
@@ -33,7 +33,7 @@
 
         <mat-form-field appearance="full-width">
             <mat-label>Selecione Placa</mat-label>
-            <mat-select [(value)]="visitante.vcar" formControlName="vcar" matInput placeholder="Tipo">
+            <mat-select [(value)]="visitante.vcar"  matInput placeholder="Tipo">
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let pla of carrosVisitantes" value="{{pla.id}}">{{ pla.placa }}</mat-option>
             </mat-select>

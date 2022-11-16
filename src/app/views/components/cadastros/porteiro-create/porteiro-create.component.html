@@ -1,0 +1,33 @@
+<h1 class="texto" mat-dialog-title>ADICIONANDO</h1>
+<div mat-dialog-content>
+    <form [formGroup]="porteiroForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input [(ngModel)]="porteiro.nome" formControlName="nome" matInput placeholder="nome">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input [(ngModel)]="porteiro.cpf" formControlName="cpf" matInput placeholder="cpf">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
+            <input [(ngModel)]="porteiro.status" formControlName="status" matInput placeholder="status">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Data Admissão</mat-label>
+            <input [(ngModel)]="porteiro.data_admissao" formControlName="data_admissao" matInput placeholder="data_admissao">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Data Demissão</mat-label>
+            <input [(ngModel)]="porteiro.data_demissao" formControlName="data_demissao" matInput placeholder="data_demissao">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Turno</mat-label>
+            <input [(ngModel)]="porteiro.turno" formControlName="turno" matInput placeholder="turno">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    <button (click)="cancel()" mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+    <button (click)="create()" style="margin-left: 8px;" mat-raised-button color="primary">Salvar</button>
+</div>

@@ -1,3 +1,6 @@
+import { PorteiroReadComponent } from './views/components/cadastros/porteiro-read/porteiro-read.component';
+import { MoradorReadComponent } from './views/components/cadastros/morador-read/morador-read.component';
+
 import { VisitantesUpdateComponent } from './views/components/cadastros/visitantes-update/visitantes-update.component';
 import { ValidacaoPortaoComponent } from './views/components/validacao-portao/validacao-portao.component';
 import { ReclamacoesComponent } from './views/components/reclamacoes/reclamacoes.component';
@@ -55,6 +58,14 @@ const routes: Routes = [
   {
     path: 'smartentry/gatevalidation',
     component: ValidacaoPortaoComponent
+  },
+  {
+    path: 'smartentry/dweller',
+    component: MoradorReadComponent
+  },
+  {
+    path: 'smartentry/concierge',
+    component: PorteiroReadComponent
   }  
 ];
 
