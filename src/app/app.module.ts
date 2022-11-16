@@ -19,6 +19,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatListModule } from '@angular/material/list'
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './views/components/home/home.component';
 import { CorrespondenciasReadComponent } from './views/components/cadastros/correspondencias-read/correspondencias-read.component';
@@ -29,6 +31,10 @@ import { CarrosEmpresasCreateComponent } from './views/components/cadastros/carr
 import { CarrosEmpresasUpdateComponent } from './views/components/cadastros/carros-empresas-update/carros-empresas-update.component';
 import { VisitantesReadComponent } from './views/components/cadastros/visitantes-read/visitantes-read.component';
 import { VisitantesCreateComponent } from './views/components/cadastros/visitantes-create/visitantes-create.component';
+import { LoginComponent } from './views/components/login/login.component';
+import { HeaderComponent } from './views/components/template/header/header.component';
+import { ReclamacoesComponent } from './views/components/reclamacoes/reclamacoes.component';
+import { ValidacaoPortaoComponent } from './views/components/validacao-portao/validacao-portao.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +47,11 @@ import { VisitantesCreateComponent } from './views/components/cadastros/visitant
     CarrosEmpresasCreateComponent,
     CarrosEmpresasUpdateComponent,
     VisitantesReadComponent,
-    VisitantesCreateComponent
-
+    VisitantesCreateComponent,
+    LoginComponent,
+    HeaderComponent,
+    ReclamacoesComponent,
+    ValidacaoPortaoComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +72,9 @@ import { VisitantesCreateComponent } from './views/components/cadastros/visitant
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

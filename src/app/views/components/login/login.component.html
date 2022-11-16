@@ -1,0 +1,19 @@
+<div class="main-login">
+    <div class="left-login">
+        <img src="assets/img/branco.png" class="left-login-image">
+    </div>
+    <div class="right-login">
+        <div class="card-login">
+            <h1>LOGIN</h1>
+            <div class="textfield">
+                <label for="usuario">Usuário</label>
+                <input type="text" name="usuario" [(ngModel)]="nomeUsuario" placeholder="Usuário">
+            </div>
+            <div class="textfield">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" [(ngModel)]="senha" placeholder="Senha">
+            </div>
+            <button class="btn-login" (click)="doLogin()">Login</button>
+        </div>
+    </div>
+</div>

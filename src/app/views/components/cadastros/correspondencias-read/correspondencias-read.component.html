@@ -4,7 +4,7 @@
 </div>
 
 <div class="mat-elevation-z8 container">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" class="table">
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
@@ -59,6 +59,6 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons 
-                 aria-label="Select page of periodic elements">
+                 aria-label="Select page of periodic elements" class="paginator">
   </mat-paginator>
 </div>

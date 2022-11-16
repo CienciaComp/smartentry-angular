@@ -1,0 +1,42 @@
+<div class="create">
+    <h1>Reclamações</h1>
+    
+  </div>
+  
+  <div class="mat-elevation-z8 container">
+    <table mat-table [dataSource]="dataSource" class="table">
+
+        <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef> Nome Reclamante </th>
+        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="reclamacao">
+        <th mat-header-cell *matHeaderCellDef> Reclamação </th>
+        <td mat-cell *matCellDef="let element"> {{element.reclamacao}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons 
+                   aria-label="Select page of periodic elements" class="paginator">
+    </mat-paginator>
+  </div>
