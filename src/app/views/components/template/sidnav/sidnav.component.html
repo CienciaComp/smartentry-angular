@@ -1,6 +1,6 @@
 <mat-sidenav-container class="container mat-elevation-z10">
 
-    <mat-sidenav  *ngIf="mostrarMenu"  class="sidenav" mode="side" opened>
+    <mat-sidenav *ngIf="mostrarMenu" class="sidenav" mode="side" opened>
         <mat-nav-list>
             <a routerLink="smartentry/home" mat-list-item>
                 <i class="material-icons">home</i>
@@ -37,7 +37,6 @@
             </a>
         </mat-nav-list>
     </mat-sidenav>
-
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

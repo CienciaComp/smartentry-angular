@@ -4,11 +4,14 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject} from 'rxjs';
 import { tap } from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CorrespondenciasService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(
     private http : HttpClient, 
@@ -22,7 +25,8 @@ export class CorrespondenciasService {
   }
 
   findAll(): Observable<Correspondencia[]> {
-    return this.http.get<Correspondencia[]>("/api/correspondences");
+    const url = this.baseUrl + "/api/correspondences";
+    return this.http.get<Correspondencia[]>(url);
   }
 
   create(correspondencia: Correspondencia):Observable<Correspondencia> {
