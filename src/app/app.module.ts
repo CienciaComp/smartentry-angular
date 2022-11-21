@@ -45,6 +45,7 @@ import { MoradorReadComponent } from './views/components/cadastros/morador-read/
 import { PorteiroReadComponent } from './views/components/cadastros/porteiro-read/porteiro-read.component';
 import { MoradorCreateComponent } from './views/components/cadastros/morador-create/morador-create.component';
 import { PorteiroCreateComponent } from './views/components/cadastros/porteiro-create/porteiro-create.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { PorteiroCreateComponent } from './views/components/cadastros/porteiro-c
     MatSnackBarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

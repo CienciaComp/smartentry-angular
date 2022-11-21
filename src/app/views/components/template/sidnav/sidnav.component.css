@@ -40,3 +40,23 @@
 i {
     padding-right: .6rem;
 }
+
+.header {
+    background-color: #121722;
+    width: 80%;
+    height: 50%;
+    margin: 1rem auto;
+}
+
+.title {
+    color: #fff;
+}
+
+.subtitle {
+    color: #fff;
+}
+
+.logo {
+    width: 20vw;
+    margin: 1rem 15%;
+}

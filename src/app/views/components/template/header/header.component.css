@@ -36,3 +36,28 @@
 i {
     padding-right: .6rem;
 }
+
+
+.logout {
+    height: 60px;
+}
+
+.card {
+    background-color: #121722;
+    width: 80%;
+    height: 50%;
+    margin: 1rem auto;
+}
+
+.title {
+    color: #fff;
+}
+
+.subtitle {
+    color: #fff;
+}
+
+.smart {
+    width: 25vw;
+    margin: 1rem 10%;
+}
