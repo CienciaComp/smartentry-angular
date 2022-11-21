@@ -4,11 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { Morador } from './../models/morador';
 import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoradorService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(
     private http : HttpClient, 
@@ -22,16 +25,18 @@ export class MoradorService {
   }
 
   findAll(): Observable<Morador[]> {
-    return this.http.get<Morador[]>("/api/dweller");
+    const url = this.baseUrl + "/api/dweller";
+    return this.http.get<Morador[]>(url);
   }
 
   findById(id : any):Observable<Morador>{
-    const url = `${this.API}/dweller/${id}`;
+    const url = `${this.baseUrl}/api/dweller/${id}`;
     return this.http.get<Morador>(url);
   }
 
   create(morador: Morador):Observable<Morador> {
-    return this.http.post<Morador>("/api/dweller", morador).pipe(
+    const url = this.baseUrl + "/api/dweller";
+    return this.http.post<Morador>(url, morador).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -39,7 +44,8 @@ export class MoradorService {
   }
 
   delete(id : any):Observable<void> {
-    return this.http.delete<void>("/api/dweller/" + id);
+    const url = `${this.baseUrl}/api/dweller/${id}`;
+    return this.http.delete<void>(url);
   }
 
   message(msg : String): void {

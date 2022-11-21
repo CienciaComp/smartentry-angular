@@ -30,7 +30,8 @@ export class CorrespondenciasService {
   }
 
   create(correspondencia: Correspondencia):Observable<Correspondencia> {
-    return this.http.post<Correspondencia>("/api/correspondences", correspondencia).pipe(
+    const url = this.baseUrl + "/api/correspondences";
+    return this.http.post<Correspondencia>(url, correspondencia).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -38,16 +39,17 @@ export class CorrespondenciasService {
   }
 
   update(correspondencia: Correspondencia):Observable<void> {
-    const url = `${this.API}/correspondences/${correspondencia.id}`
+    const url = `${this.baseUrl}/api/correspondences/${correspondencia.id}`
     return this.http.put<void>(url, correspondencia)
   }
 
   delete(id : any):Observable<void> {
-    return this.http.delete<void>("/api/correspondences/" + id);
+    const url = `${this.baseUrl}/api/correspondences/${id}`;
+    return this.http.delete<void>(url);
   }
 
   findById(id : any):Observable<Correspondencia>{
-    const url = `${this.API}/correspondences/${id}`;
+    const url = `${this.baseUrl}/api/correspondences/${id}`;
     return this.http.get<Correspondencia>(url);
   }
 

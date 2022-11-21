@@ -4,11 +4,14 @@ import { Porteiro } from './../models/porteiro';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PorteiroService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(
     private http : HttpClient, 
@@ -21,16 +24,18 @@ export class PorteiroService {
     return this._refreshrequired;
   }
   findAll(): Observable<Porteiro[]> {
-    return this.http.get<Porteiro[]>("/api/concierge");
+    const url = this.baseUrl + "/api/concierge";
+    return this.http.get<Porteiro[]>(url);
   }
 
   findById(id : any):Observable<Porteiro>{
-    const url = `${this.API}/concierge/${id}`;
+    const url = `${this.baseUrl}/api/concierge/${id}`;
     return this.http.get<Porteiro>(url);
   }
 
   create(porteiro: Porteiro):Observable<Porteiro> {
-    return this.http.post<Porteiro>("/api/concierge", porteiro).pipe(
+    const url = this.baseUrl + "/api/concierge";
+    return this.http.post<Porteiro>(url, porteiro).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })

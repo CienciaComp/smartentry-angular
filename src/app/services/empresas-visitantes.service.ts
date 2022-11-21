@@ -4,11 +4,14 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject} from 'rxjs';
 import { tap } from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpresasVisitantesService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(private http : HttpClient,
     private snack: MatSnackBar) { }
@@ -21,16 +24,18 @@ export class EmpresasVisitantesService {
   }
 
   findAll(): Observable<EmpresasVisitantes[]> {
-    return this.http.get<EmpresasVisitantes[]>("/api/company");
+    const url = this.baseUrl + "/api/company";
+    return this.http.get<EmpresasVisitantes[]>(url);
   }
 
   findById(id : any):Observable<EmpresasVisitantes>{
-    const url = `${this.API}/company/${id}`;
+    const url = `${this.baseUrl}/api/company/${id}`;
     return this.http.get<EmpresasVisitantes>(url);
   }
 
   create(empresaVisitante:  EmpresasVisitantes):Observable<EmpresasVisitantes> {
-    return this.http.post<EmpresasVisitantes>("/api/company", empresaVisitante).pipe(
+    const url = this.baseUrl + "/api/company";
+    return this.http.post<EmpresasVisitantes>(url, empresaVisitante).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -38,12 +43,13 @@ export class EmpresasVisitantesService {
   }
 
   update(empresaVisitante: EmpresasVisitantes):Observable<void> {
-    const url = `${this.API}/company/${empresaVisitante.id}`
+    const url = `${this.baseUrl}/api/company/${empresaVisitante.id}`
     return this.http.put<void>(url, empresaVisitante)
   }
 
   delete(id : any):Observable<void> {
-    return this.http.delete<void>("/api/company/" + id);
+    const url = `${this.baseUrl}/api/company/${id}`;
+    return this.http.delete<void>(url);
   }
 
   message(msg : String): void {

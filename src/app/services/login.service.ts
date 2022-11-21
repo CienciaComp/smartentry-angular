@@ -3,11 +3,14 @@ import { Users } from './../models/users';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  baseUrl: String = environment.baseUrl
 
   private usuarioAutenticado: boolean = false;
 
@@ -31,6 +34,7 @@ export class LoginService {
   }
 
   findAll(): Observable<Users[]> {
-    return this.http.get<Users[]>("/api/users");
+    const url = this.baseUrl + "/api/users";
+    return this.http.get<Users[]>(url);
   }
 }

@@ -3,11 +3,14 @@ import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContatoMoradorService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(
     private http : HttpClient, 
@@ -21,11 +24,12 @@ export class ContatoMoradorService {
   }
 
   findAll(): Observable<ContatoMorador[]> {
-    return this.http.get<ContatoMorador[]>("/api/contact");
+    const url = this.baseUrl + "/api/contact";
+    return this.http.get<ContatoMorador[]>(url);
   }
 
   findById(id : any):Observable<ContatoMorador>{
-    const url = `${this.API}/contact/${id}`;
+    const url = `${this.baseUrl}/api/contact/${id}`;
     return this.http.get<ContatoMorador>(url);
   }
 }

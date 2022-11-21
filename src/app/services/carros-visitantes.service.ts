@@ -4,11 +4,14 @@ import { CarrosVisitantes } from './../models/carros-visitantes';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarrosVisitantesService {
+
+  baseUrl: String = environment.baseUrl
 
   private readonly API = 'api'
 
@@ -21,16 +24,18 @@ export class CarrosVisitantesService {
   }
 
   findAll(): Observable<CarrosVisitantes[]> {
-    return this.http.get<CarrosVisitantes[]>("/api/carvisitant");
+    const url = this.baseUrl + "/api/carvisitant";
+    return this.http.get<CarrosVisitantes[]>(url);
   }
 
   findById(id : any):Observable<CarrosVisitantes>{
-    const url = `${this.API}/carvisitant/${id}`;
+    const url = `${this.baseUrl}/api/correspondences/${id}`;
     return this.http.get<CarrosVisitantes>(url);
   }
 
   create(visitante: CarrosVisitantes):Observable<CarrosVisitantes> {
-    return this.http.post<CarrosVisitantes>("/api/carvisitant", visitante).pipe(
+    const url = this.baseUrl + "/api/carvisitant";
+    return this.http.post<CarrosVisitantes>(url, visitante).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })

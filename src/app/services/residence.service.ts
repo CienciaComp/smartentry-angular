@@ -3,11 +3,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResidenceService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(
     private http : HttpClient, 
@@ -21,11 +24,12 @@ export class ResidenceService {
   }
 
   findAll(): Observable<Residence[]> {
-    return this.http.get<Residence[]>("/api/residence");
+    const url = this.baseUrl + "/api/residence";
+    return this.http.get<Residence[]>(url);
   }
 
   findById(id : any):Observable<Residence>{
-    const url = `${this.API}/residence/${id}`;
+    const url = `${this.baseUrl}/api/residence/${id}`;
     return this.http.get<Residence>(url);
   }
 }

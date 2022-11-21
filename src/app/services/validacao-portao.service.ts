@@ -3,11 +3,14 @@ import { Subject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ValidacaoPortaoService {
+
+  baseUrl: String = environment.baseUrl
 
   constructor(
     private http : HttpClient, 
@@ -21,6 +24,7 @@ export class ValidacaoPortaoService {
   }
 
   findAll(): Observable<ValidacaoPortao[]> {
-    return this.http.get<ValidacaoPortao[]>("/api/gatevalidation");
+    const url = this.baseUrl + "/api/gatevalidation";
+    return this.http.get<ValidacaoPortao[]>(url);
   }
 }
