@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api-java-test.pd.app.br'
+  baseUrl: 'https://api-java-test.pd.app.br',
+  secure: false
 };
 
 /*
