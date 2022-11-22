@@ -25,18 +25,16 @@ export class MoradorService {
   }
 
   findAll(): Observable<Morador[]> {
-    const url = this.baseUrl + "/api/dweller";
-    return this.http.get<Morador[]>(url);
+    return this.http.get<Morador[]>("/api/dweller");
   }
 
   findById(id : any):Observable<Morador>{
-    const url = `${this.baseUrl}/api/dweller/${id}`;
+    const url = `${this.API}/dweller/${id}`;
     return this.http.get<Morador>(url);
   }
 
   create(morador: Morador):Observable<Morador> {
-    const url = this.baseUrl + "/api/dweller";
-    return this.http.post<Morador>(url, morador).pipe(
+    return this.http.post<Morador>("/api/dweller", morador).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -44,8 +42,7 @@ export class MoradorService {
   }
 
   delete(id : any):Observable<void> {
-    const url = `${this.baseUrl}/api/dweller/${id}`;
-    return this.http.delete<void>(url);
+    return this.http.delete<void>("/api/dweller/" + id);
   }
 
   message(msg : String): void {

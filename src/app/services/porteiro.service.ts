@@ -24,18 +24,16 @@ export class PorteiroService {
     return this._refreshrequired;
   }
   findAll(): Observable<Porteiro[]> {
-    const url = this.baseUrl + "/api/concierge";
-    return this.http.get<Porteiro[]>(url);
+    return this.http.get<Porteiro[]>("/api/concierge");
   }
 
   findById(id : any):Observable<Porteiro>{
-    const url = `${this.baseUrl}/api/concierge/${id}`;
+    const url = `${this.API}/concierge/${id}`;
     return this.http.get<Porteiro>(url);
   }
 
   create(porteiro: Porteiro):Observable<Porteiro> {
-    const url = this.baseUrl + "/api/concierge";
-    return this.http.post<Porteiro>(url, porteiro).pipe(
+    return this.http.post<Porteiro>("/api/concierge", porteiro).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -49,7 +47,7 @@ export class PorteiroService {
       duration: 4000
     })
   }
-
+  
   delete(id : any):Observable<void> {
     return this.http.delete<void>("/api/concierge/" + id);
   }

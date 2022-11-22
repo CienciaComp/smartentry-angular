@@ -24,18 +24,16 @@ export class CarrosEmpresasService {
     private snack: MatSnackBar) { }
 
   findAll(): Observable<CarrosEmpresas[]> {
-    const url = this.baseUrl + "/api/carcompany";
-    return this.http.get<CarrosEmpresas[]>(url);
+    return this.http.get<CarrosEmpresas[]>("/api/carcompany");
   }
 
   findById(id : any):Observable<CarrosEmpresas>{
-    const url = `${this.baseUrl}/api/carcompany/${id}`;
+    const url = `${this.API}/carcompany/${id}`;
     return this.http.get<CarrosEmpresas>(url);
   }
 
   create(carroEmpresa:  CarrosEmpresas):Observable<CarrosEmpresas> {
-    const url = this.baseUrl + "/api/carcompany";
-    return this.http.post<CarrosEmpresas>(url, carroEmpresa).pipe(
+    return this.http.post<CarrosEmpresas>("/api/carcompany", carroEmpresa).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })

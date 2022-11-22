@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api-java-test.pd.app.br',
-  secure: false
+  baseUrl: 'http://localhost:8080'
 };
 
 /*

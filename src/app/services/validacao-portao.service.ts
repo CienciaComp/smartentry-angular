@@ -24,7 +24,6 @@ export class ValidacaoPortaoService {
   }
 
   findAll(): Observable<ValidacaoPortao[]> {
-    const url = this.baseUrl + "/api/gatevalidation";
-    return this.http.get<ValidacaoPortao[]>(url);
+    return this.http.get<ValidacaoPortao[]>("/api/gatevalidation");
   }
 }

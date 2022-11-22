@@ -24,18 +24,16 @@ export class EmpresasVisitantesService {
   }
 
   findAll(): Observable<EmpresasVisitantes[]> {
-    const url = this.baseUrl + "/api/company";
-    return this.http.get<EmpresasVisitantes[]>(url);
+    return this.http.get<EmpresasVisitantes[]>("/api/company");
   }
 
   findById(id : any):Observable<EmpresasVisitantes>{
-    const url = `${this.baseUrl}/api/company/${id}`;
+    const url = `${this.API}/company/${id}`;
     return this.http.get<EmpresasVisitantes>(url);
   }
 
   create(empresaVisitante:  EmpresasVisitantes):Observable<EmpresasVisitantes> {
-    const url = this.baseUrl + "/api/company";
-    return this.http.post<EmpresasVisitantes>(url, empresaVisitante).pipe(
+    return this.http.post<EmpresasVisitantes>("/api/company", empresaVisitante).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -43,13 +41,12 @@ export class EmpresasVisitantesService {
   }
 
   update(empresaVisitante: EmpresasVisitantes):Observable<void> {
-    const url = `${this.baseUrl}/api/company/${empresaVisitante.id}`
+    const url = `${this.API}/company/${empresaVisitante.id}`
     return this.http.put<void>(url, empresaVisitante)
   }
 
   delete(id : any):Observable<void> {
-    const url = `${this.baseUrl}/api/company/${id}`;
-    return this.http.delete<void>(url);
+    return this.http.delete<void>("/api/company/" + id);
   }
 
   message(msg : String): void {

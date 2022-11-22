@@ -25,13 +25,11 @@ export class VisitantesService {
   }
 
   findAll(): Observable<Visitante[]> {
-    const url = this.baseUrl + "/api/visitants";
-    return this.http.get<Visitante[]>(url);
+    return this.http.get<Visitante[]>("/api/visitants");
   }
 
   create(visitante: Visitante):Observable<Visitante> {
-    const url = this.baseUrl + "/api/visitants";
-    return this.http.post<Visitante>(url, visitante).pipe(
+    return this.http.post<Visitante>("/api/visitants", visitante).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })
@@ -39,18 +37,17 @@ export class VisitantesService {
   }
 
   update(visitante: Visitante):Observable<void> {
-    const url = `${this.baseUrl}/api/visitants/${visitante.id}`
+    const url = `${this.API}/visitants/${visitante.id}`
     return this.http.put<void>(url, visitante)
   }
 
   findById(id : any):Observable<Visitante>{
-    const url = `${this.baseUrl}/api/visitants/${id}`;
+    const url = `${this.API}/visitants/${id}`;
     return this.http.get<Visitante>(url);
   }
 
   delete(id : any):Observable<void> {
-    const url = `${this.baseUrl}/api/visitants/${id}`;
-    return this.http.delete<void>(url);
+    return this.http.delete<void>("/api/visitants/" + id);
   }
 
   message(msg : String): void {

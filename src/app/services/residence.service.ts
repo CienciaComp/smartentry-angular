@@ -24,12 +24,11 @@ export class ResidenceService {
   }
 
   findAll(): Observable<Residence[]> {
-    const url = this.baseUrl + "/api/residence";
-    return this.http.get<Residence[]>(url);
+    return this.http.get<Residence[]>("/api/residence");
   }
 
   findById(id : any):Observable<Residence>{
-    const url = `${this.baseUrl}/api/residence/${id}`;
+    const url = `${this.API}/residence/${id}`;
     return this.http.get<Residence>(url);
   }
 }

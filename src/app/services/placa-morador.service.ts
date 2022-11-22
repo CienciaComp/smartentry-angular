@@ -24,12 +24,11 @@ export class PlacaMoradorService {
   }
 
   findAll(): Observable<PlacaMorador[]> {
-    const url = this.baseUrl + "/api/car";
-    return this.http.get<PlacaMorador[]>(url);
+    return this.http.get<PlacaMorador[]>("/api/car");
   }
 
   findById(id : any):Observable<PlacaMorador>{
-    const url = `${this.baseUrl}/api/car/${id}`;
+    const url = `${this.API}/car/${id}`;
     return this.http.get<PlacaMorador>(url);
   }
 }
