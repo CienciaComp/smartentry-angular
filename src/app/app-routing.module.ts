@@ -1,3 +1,4 @@
+import { PorteiroUpdateComponent } from './views/components/cadastros/porteiro-update/porteiro-update.component';
 import { PorteiroReadComponent } from './views/components/cadastros/porteiro-read/porteiro-read.component';
 import { MoradorReadComponent } from './views/components/cadastros/morador-read/morador-read.component';
 
@@ -15,6 +16,7 @@ import { CorrespondenciasUpdateComponent } from './views/components/cadastros/co
 import { LoginComponent } from './views/components/login/login.component';
 import { HeaderComponent } from './views/components/template/header/header.component';
 import { VisitantesCreateComponent } from './views/components/cadastros/visitantes-create/visitantes-create.component';
+import { MoradorUpdateComponent } from './views/components/cadastros/morador-update/morador-update.component';
 
 
 
@@ -67,6 +69,16 @@ const routes: Routes = [
     path: 'smartentry/concierge',
     component: PorteiroReadComponent
   }  
+  ,
+  {
+    path: 'smartentry/dweller/update/:id',
+    component: MoradorUpdateComponent
+  }  
+  ,
+  {
+    path: 'smartentry/concierge/update/:id',
+    component: PorteiroUpdateComponent
+  } 
 ];
 
 @NgModule({

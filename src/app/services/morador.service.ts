@@ -43,6 +43,11 @@ export class MoradorService {
     );
   }
 
+  update(morador: Morador):Observable<void> {
+    const url = `${this.baseUrl}/api/dweller/${morador.id}`
+    return this.http.put<void>(url, morador)
+  }
+
   delete(id : any):Observable<void> {
     const url = `${this.baseUrl}/api/dweller/${id}`;
     return this.http.delete<void>(url);

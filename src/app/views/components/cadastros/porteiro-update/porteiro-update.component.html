@@ -1,0 +1,42 @@
+<div class="container">
+
+    <h1>Atualizando Porteiro</h1>
+
+    <div class="labels">
+        <mat-form-field class="full-width">
+            <mat-label>Nome</mat-label>
+            <input [(ngModel)]="porteiro.nome" matInput placeholder="nome">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>CPF</mat-label>
+            <input [(ngModel)]="porteiro.cpf" matInput placeholder="cpf">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Status</mat-label>
+            <input [(ngModel)]="porteiro.status" matInput placeholder="status">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Data Admissão</mat-label>
+            <input [(ngModel)]="porteiro.data_admissao" matInput placeholder="data_admissao">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Data Demissão</mat-label>
+            <input [(ngModel)]="porteiro.data_demissao" matInput placeholder="data_demissao">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Turno</mat-label>
+            <input [(ngModel)]="porteiro.turno" matInput placeholder="turno">
+        </mat-form-field>
+    </div>
+
+    <div class="buttons">
+        <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary">ATUALIZAR</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="black">CANCELAR</button>
+    </div>
+
+</div>

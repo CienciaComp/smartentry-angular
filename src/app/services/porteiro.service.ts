@@ -33,6 +33,11 @@ export class PorteiroService {
     return this.http.get<Porteiro>(url);
   }
 
+  update(porteiro: Porteiro):Observable<void> {
+    const url = `${this.baseUrl}/api/concierge/${porteiro.id}`
+    return this.http.put<void>(url, porteiro)
+  }
+
   create(porteiro: Porteiro):Observable<Porteiro> {
     const url = this.baseUrl + "/api/concierge";
     return this.http.post<Porteiro>(url, porteiro).pipe(

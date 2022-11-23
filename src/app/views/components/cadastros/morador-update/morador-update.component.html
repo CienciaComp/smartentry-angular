@@ -1,0 +1,56 @@
+<div class="container">
+
+    <h1>Atualizando Morador</h1>
+
+    <div class="labels">
+        <mat-form-field class="full-width">
+            <mat-label>Nome</mat-label>
+            <input [(ngModel)]="morador.nome" matInput placeholder="nome">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>CPF</mat-label>
+            <input [(ngModel)]="morador.cpf" matInput placeholder="cpf">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>RG</mat-label>
+            <input [(ngModel)]="morador.rg" matInput placeholder="rg">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Status</mat-label>
+            <input [(ngModel)]="morador.status" matInput placeholder="status">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Selecione Residência</mat-label>
+            <mat-select [(value)]="morador.residence" formControlName="dweller" matInput placeholder="Tipo">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let res of residences" value="{{res.id}}">{{ res.numero }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="full-width">
+            <mat-label>Selecione Contato Morador</mat-label>
+            <mat-select [(value)]="morador.contactDweller" formControlName="contactDweller" matInput placeholder="Tipo">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let con of contatoMorador" value="{{con.id}}">{{ con.telefone1 }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="full-width">
+            <mat-label>Selecione Placa Carro</mat-label>
+            <mat-select [(value)]="morador.car" formControlName="car" matInput placeholder="Tipo">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let car of placaMorador" value="{{car.id}}">{{ car.placa }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="buttons">
+        <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="primary">ATUALIZAR</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="black">CANCELAR</button>
+    </div>
+
+</div>
