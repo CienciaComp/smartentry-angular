@@ -24,16 +24,18 @@ export class CarrosVisitantesService {
   }
 
   findAll(): Observable<CarrosVisitantes[]> {
-    return this.http.get<CarrosVisitantes[]>("/api/carvisitant");
+    const url = this.baseUrl + "/api/carvisitant";
+    return this.http.get<CarrosVisitantes[]>(url);
   }
 
   findById(id : any):Observable<CarrosVisitantes>{
-    const url = `${this.API}/correspondences/${id}`;
+    const url = `${this.baseUrl}/api/carvisitant/${id}`;
     return this.http.get<CarrosVisitantes>(url);
   }
 
   create(visitante: CarrosVisitantes):Observable<CarrosVisitantes> {
-    return this.http.post<CarrosVisitantes>("/api/carvisitant", visitante).pipe(
+    const url = this.baseUrl + "/api/carvisitant";
+    return this.http.post<CarrosVisitantes>(url, visitante).pipe(
       tap(() =>{
         this.RequiredRefresh.next();
       })

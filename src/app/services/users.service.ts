@@ -19,7 +19,7 @@ export class UsersService {
   private readonly API = 'api'
 
   findById(id : any):Observable<Users>{
-    const url = `${this.API}/users/${id}`;
+    const url = `${this.baseUrl}/api/users/${id}`;
     return this.http.get<Users>(url);
   }
 }

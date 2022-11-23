@@ -34,6 +34,7 @@ export class LoginService {
   }
 
   findAll(): Observable<Users[]> {
-    return this.http.get<Users[]>("/api/users");
+    const url = this.baseUrl + "/api/users";
+    return this.http.get<Users[]>(url);
   }
 }

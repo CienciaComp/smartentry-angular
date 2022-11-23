@@ -24,11 +24,12 @@ export class ContatoMoradorService {
   }
 
   findAll(): Observable<ContatoMorador[]> {
-    return this.http.get<ContatoMorador[]>("/api/contact");
+    const url = this.baseUrl + "/api/contact";
+    return this.http.get<ContatoMorador[]>(url);
   }
 
   findById(id : any):Observable<ContatoMorador>{
-    const url = `${this.API}/contact/${id}`;
+    const url = `${this.baseUrl}/api/contact/${id}`;
     return this.http.get<ContatoMorador>(url);
   }
 }

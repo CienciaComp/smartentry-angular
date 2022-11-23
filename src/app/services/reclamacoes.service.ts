@@ -24,6 +24,7 @@ export class ReclamacoesService {
   }
 
   findAll(): Observable<Reclamacoes[]> {
-    return this.http.get<Reclamacoes[]>("/api/complaints");
+    const url = this.baseUrl + "/api/complaints";
+    return this.http.get<Reclamacoes[]>(url);
   }
 }
