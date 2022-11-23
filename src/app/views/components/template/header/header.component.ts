@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../../../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +11,8 @@ export class HeaderComponent implements OnInit {
 
   mostrarMenu: boolean = false;
 
-  constructor(private service : LoginService) {
+  constructor(private service : LoginService,
+    private router : Router) {
 
   }
 
@@ -18,6 +20,10 @@ export class HeaderComponent implements OnInit {
     this.service.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
     );
+  }
+
+  logout() {
+    this.router.navigate(['smartentry/login'])
   }
 
 }
