@@ -26,4 +26,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['smartentry/login'])
   }
 
+  logo() {
+    this.router.navigate(['smartentry/home'])
+  }
+
 }
